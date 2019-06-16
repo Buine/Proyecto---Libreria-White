@@ -58,31 +58,31 @@ function details($connection, $id){
 		}
 		$html = $html.'
 			<div class="row">
-				<div class="cell">
+				<div class="cell" data-title="Codigo">
 					'.($row[0]).'
 				</div>
-				<div class="cell">
+				<div class="cell" data-title="Titulo">
 					'.($row[1]).'
 				</div>
-				<div class="cell">
+				<div class="cell" data-title="Autor">
 					'.($row[2]).'
 				</div>
-				<div class="cell">
+				<div class="cell" data-title="Generos">
 					'.$generos.'
 				</div>
-				<div class="cell">
+				<div class="cell" data-title="Cantidad">
 					'.($row[4]).'
 				</div>
-				<div class="cell">
+				<div class="cell" data-title="Entradas">
 					'.($row[5]).'
 				</div>
-				<div class="cell">
+				<div class="cell" data-title="Salidas">
 					'.($row[6]).'
 				</div>
-				<div class="cell">
+				<div class="cell" data-title="Precio">
 					'.($row[7]).'
 				</div>
-				<div class="cell">
+				<div class="cell" data-title=Costo>
 					'.($row[8]).'
 				</div>
 			</div>';

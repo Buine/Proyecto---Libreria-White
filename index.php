@@ -64,19 +64,19 @@
 				$dir = $info->direccion;
 			?>
 				<div class="row">
-					  <div class="cell">
+					  <div class="cell" data-title="Id">
 						<?= $info->id ?>
 					  </div>
-					  <div class="cell">
+					  <div class="cell" data-title="Fecha">
 						<?= $info->fecha ?>
 					  </div>
-					  <div class="cell">
+					  <div class="cell" data-title="Dirección">
 						<?= $dir->ciudad ?>, <?= $dir->barrio ?>, <?= $dir->calle ?>
 					  </div>
-					  <div class="cell">
+					  <div class="cell" data-title="Observación">
 						<?= $info->observaciones ?>
 					  </div>
-					  <div class="cell">
+					  <div class="cell" data-title="Acciones">
 						<a onClick="deleteInv(<?= $row["inv_id"] ?>)">Eliminar</a>
 						<a onClick="details(<?= $row["inv_id"] ?>)">Detalles</a>
 					  </div>

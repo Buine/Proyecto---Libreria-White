@@ -13,19 +13,19 @@
 			$nr = pg_num_rows($result);
 			$html = '
 				<div class="row header">
-					  <div class="cell">
+					  <div class="cell" data-title="Id">
 						ID
 					  </div>
-					  <div class="cell">
+					  <div class="cell" data-title="Fecha">
 						Fecha
 					  </div>
-					  <div class="cell">
+					  <div class="cell" data-title="Dirección">
 						Direccion
 					  </div>
-					  <div class="cell">
+					  <div class="cell" data-title="Observaciones">
 						Observaciones
 					  </div>
-					  <div class="cell">
+					  <div class="cell" data-title="Acciones">
 						Acciones
 					  </div>
 				</div>';

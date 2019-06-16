@@ -1,6 +1,5 @@
 var det = false;
 
-
 function deleteInv(id){
 	if(confirm("Estas seguro de eliminar este registro de inventario?")){
 		$.ajax({
@@ -31,6 +30,7 @@ function details(id){
 			} else {
 				document.getElementById("preview").innerHTML = data;
 			}
+			window.location.href = "#preview";
 		},
 		error:function(data){
 			alert(data);
