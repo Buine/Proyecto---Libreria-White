@@ -1,0 +1,208 @@
+body{
+	margin: 0;
+	font-family: 'Google'
+	/*background: #131313;*/
+}
+
+@font-face{
+	font-family: 'Google';
+	src: url("../FONTS/GoogleSans-Medium.ttf") format('truetype');
+}
+
+/*----------------[TOP]-----------------*/
+.top{
+	margin: auto;
+	background: #181818;
+	align-content: center;
+}
+
+.header{
+	width: auto;
+}
+
+.top h2{
+	font-size: 19.6px;
+	font-family: "Google";
+	color: white;
+	font-style: italic;
+	font-weight: 500;
+	text-align: center;
+	margin: 0;
+	padding-top: 10px;
+	letter-spacing: 1.5px;
+}
+
+.top h1{
+	font-size: 41.99px;
+	font-family: 'Helvetica Neue';
+	color: WHITE;
+	font-weight: 800;
+	text-align: center;
+	margin: 0;
+	position: relative;
+	top: -13px;
+}
+
+.top .shadow{
+	font-size: 41.99px;
+	font-family: 'Helvetica Neue';
+	color: #181818;
+	text-align: center;
+	position: absolute;
+	top: 25px;
+	left: calc(50% - 69.5px);
+	text-shadow:
+   -1px -1px 0 white,  
+    1px -1px 0 white,
+    -1px 1px 0 white,
+     1px 1px 0 white;
+}
+
+/*-----------------------------------------------------*/
+.center{
+	margin: auto;
+	align-content: center;
+	height: 260px;
+	background: url("../IMG/bg.png");
+	background-repeat: repeat;
+	background-size: 375px 34px
+}
+
+.center h3{
+	margin: 0;
+	text-align: center;
+	font-family: 'Oswald';
+	font-size: 35px;
+	font-style: normal;
+	height: 30px;
+	color: white;
+	letter-spacing: 1.5px;
+}
+
+.center .stroke{
+	color: #1a1a1a;
+	text-shadow:
+   -1px -1px 0 white,  
+    1px -1px 0 white,
+    -1px 1px 0 white,
+     1px 1px 0 white;
+}
+
+.texts{
+	padding-top: calc(140px / 2);
+}
+/*---------------------------------------------------*/
+
+.list{
+	margin: 40px auto;
+    position: relative;
+	padding: 15px 25px; 
+    width: 70%;
+	display: block;
+}
+
+.list h4{
+	font-size: 50px;
+	font-family: "Helvetica Neue";
+	color: white;
+	margin: 0;
+	text-shadow:
+   -1px -1px 0 black,  
+    1px -1px 0 black,
+    -1px 1px 0 black,
+     1px 1px 0 black, 0px 2.5px 0 black;
+	height: 52px;
+}
+
+.list h5{
+	font-size: 16px;
+	font-family: "Helvetica Neue";
+	color: black;
+	margin: 0;
+}
+/*--------------------[TABLE]---------------------*/
+.table {
+  margin: 0 0 30px 0;
+  width: 100%;
+  box-shadow: 0 10px 40px rgba(0,0,0,0.2);
+  display: table;
+}
+@media screen and (max-width: 580px) {
+  .table {
+    display: block;
+  }
+}
+.row {
+  display: table-row;
+  background: #f6f6f6;
+}
+.row:nth-of-type(odd) {
+  background: #e9e9e9;
+}
+.row.header {
+  font-weight: 500;
+  color: #fff;
+  background: #181818;
+  height: auto;
+}
+.row.green {
+  background: #27ae60;
+}
+.row.blue {
+  background: #2980b9;
+}
+@media screen and (max-width: 580px) {
+  .row {
+    padding: 14px 0 7px;
+    display: block;
+  }
+  .row.header {
+    padding: 0;
+    height: 6px;
+  }
+  .row.header .cell {
+    display: none;
+  }
+  .row .cell {
+    margin-bottom: 10px;
+  }
+  .row .cell:before {
+    margin-bottom: 3px;
+    content: attr(data-title);
+    min-width: 98px;
+    font-size: 10px;
+    line-height: 10px;
+    font-weight: bold;
+    text-transform: uppercase;
+    color: #969696;
+    display: block;
+  }
+}
+.cell {
+  padding: 6px 12px;
+  display: table-cell;
+}
+@media screen and (max-width: 580px) {
+  .cell {
+    padding: 2px 16px;
+    display: block;
+  }
+}
+/*------------------------------------------------*/
+.newInventario{
+	display: flex;
+	margin-left: auto;
+	background: #181818;
+    color: white;
+	font-family: "Google";
+    text-decoration: none;
+	border-style: none;
+    padding: 15px 15px;
+    border-radius: 5px;
+    position: relative;
+}
+
+a {
+	text-decoration: none;
+	color: black;
+}
