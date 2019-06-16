@@ -3,6 +3,7 @@
 <head>
 <meta charset="utf-8">
 <title>Libreria White</title>
+	<link rel="stylesheet" href="css/styles.css">
 	<script src="JS/funciones.js" type="text/javascript"></script>
 	<meta name="viewport" content="initial-scale=1.0, user-scalable=yes">
 	<link rel="shortcut icon" type="image/png" href="IMG/favicon.png"/>
@@ -10,7 +11,7 @@
 	<link href="https://fonts.googleapis.com/css?family=Roboto+Condensed|Roboto:400,400i&display=swap" rel="stylesheet">
 	<link href="//db.onlinewebfonts.com/c/021120d820562daab169a2337ab13040?family=Helvetica+Neue" rel="stylesheet">
 	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-	<link rel="stylesheet" href="CSS/styles.css">
+	
 </head>
 	<header class="header">
 		<div class="top">
@@ -27,7 +28,7 @@
 		</div>
 	</header>	
 	
-<body>
+<body id="b">
 	<div class="list">
 		<h4>LISTA</h4>
 		<h5>DE INVENTARIOS</h5>
@@ -77,6 +78,7 @@
 					  </div>
 					  <div class="cell">
 						<a onClick="deleteInv(<?= $row["inv_id"] ?>)">Eliminar</a>
+						<a onClick="details(<?= $row["inv_id"] ?>)">Detalles</a>
 					  </div>
 				</div>
 			<?php
@@ -86,5 +88,6 @@
 		</div>
 		<button type="button" class="newInventario">Generar un nuevo inventario</button>
 	</div>
+
 </body>
 </html>

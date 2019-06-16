@@ -49,6 +49,7 @@
 					  </div>
 					  <div class="cell">
 						<a onClick="deleteInv('.($row["inv_id"]).')">Eliminar</a>
+						<a onClick="details('.($row["inv_id"]).')">Detalles</a>
 					  </div>
 				</div>';
 			}

@@ -206,3 +206,54 @@ a {
 	text-decoration: none;
 	color: black;
 }
+/*------------------[Preview]-------------------------*/
+.preview {
+	margin: 40px auto;
+    position: relative;
+	padding: 3px 0;
+	background: #181818;
+    width: auto;
+}
+
+.detalles{
+	margin: 40px auto;
+    position: relative;
+	padding: 15px 25px; 
+    width: 70%;
+}
+
+.detalles h4{
+	font-size: 45px;
+	font-family: "Helvetica Neue";
+	color: #181818;
+	margin: 0;
+	text-shadow:
+   -1px -1px 0 white,  
+    1px -1px 0 white,
+    -1px 1px 0 white,
+     1px 1px 0 white, 0px 2.5px 0 white;
+	height: 48px;
+}
+
+.detalles h5{
+	font-size: 16px;
+	font-family: "Helvetica Neue";
+	color: white;
+	margin: 0;
+}
+
+/*------------------------[TABLE]----------------------*/
+.detalles .row {
+  display: table-row;
+  background: #e7e7e7;
+}
+.detalles .row:nth-of-type(odd) {
+  background: #d4d4d4;
+}
+
+.detalles .row.header {
+  font-weight: 500;
+  color: black;
+  background: white;
+  height: auto;
+}
