@@ -44,6 +44,9 @@ function details($connection, $id){
 					<div class="cell">
 						Costo
 					</div>
+					<div class="cell">
+						Stock
+					</div>
 				</div>';
 	for($i = 0; $i < $nr; $i++){
 		$row = pg_fetch_array($result, $i);
@@ -84,6 +87,9 @@ function details($connection, $id){
 				</div>
 				<div class="cell" data-title=Costo>
 					'.($row[8]).'
+				</div>
+				<div class="cell" data-title=Stock>
+					'.((int)$row[4]+(int)$row[5]-(int)$row[6]).'
 				</div>
 			</div>';
 	}

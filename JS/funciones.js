@@ -24,8 +24,7 @@ function details(id){
 		success:function(data){
 			if(!det){
 				var html = '<div class="preview" id="preview">'+data+'</div>';
-				var body = document.getElementById("b");
-				body.insertAdjacentHTML('beforeend', html);
+				document.getElementById("det").innerHTML = html;
 				det = true;
 			} else {
 				document.getElementById("preview").innerHTML = data;

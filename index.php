@@ -88,6 +88,9 @@
 		</div>
 		<button type="button" class="newInventario">Generar un nuevo inventario</button>
 	</div>
-
+    <!-- Aqui se inserta el preview | det = detalles -->
+	<div id="det">
+	
+	</div>
 </body>
 </html>
