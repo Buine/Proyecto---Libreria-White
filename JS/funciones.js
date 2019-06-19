@@ -7,7 +7,9 @@ function deleteInv(id){
 			url: "/proyecto/PHP/cargarInventario.php",
 			data:{delete:id},
 			success:function(data){
-				document.getElementById("p").innerHTML = data;
+				var d = data.split("|$|");
+				document.getElementById("p").innerHTML = d[0];
+				document.getElementById("locals").innerHTML = d[1];
 			},
 			error:function(data){
 				alert(data);

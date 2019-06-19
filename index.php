@@ -86,7 +86,26 @@
 			?>
 
 		</div>
-		<button type="button" class="newInventario">Generar un nuevo inventario</button>
+		<div class="buttons">
+			<select class="locals" id="locals">
+				<option selected value="default">Selecciona una dirección</option>
+				<?php 
+				$query = "SELECT DISTINCT(UPPER(dir))
+							FROM (SELECT ((inv_json::json -> 'direccion' ->> 'ciudad') || ', ' || (inv_json::json -> 'direccion' ->> 'barrio') || ', ' || (inv_json::json -> 'direccion' ->> 'calle')) as dir
+							FROM inventario) as direcciones";
+				$result = pg_query($dbconn, $query);
+				$nr = pg_num_rows($result);
+				for($i = 0; $i < $nr; $i++){
+					$row = pg_fetch_array($result, $i);
+					?>
+					<option><?= $row[0] ?></option>	
+				<?php
+				}
+				?>
+				<option value="new">Crear una nueva dirección</option>
+			</select>
+			<button type="button" class="newInventario">Generar un nuevo inventario</button>
+		</div>
 	</div>
     <!-- Aqui se inserta el preview | det = detalles -->
 	<div id="det">

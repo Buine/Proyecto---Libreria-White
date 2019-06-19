@@ -53,6 +53,22 @@
 					  </div>
 				</div>';
 			}
+		cargarLocales($dbconn,$html);
+	}
+
+	function cargarLocales($dbconn, $html){
+		$html = $html.'|$|
+		<option selected value="default">Selecciona una dirección</option>';
+		$query = "SELECT DISTINCT(UPPER(dir))
+						FROM (SELECT ((inv_json::json -> 'direccion' ->> 'ciudad') || ', ' || (inv_json::json -> 'direccion' ->> 'barrio') || ', ' || (inv_json::json -> 'direccion' ->> 'calle')) as dir
+						FROM inventario) as direcciones";
+			$result = pg_query($dbconn, $query);
+			$nr = pg_num_rows($result);
+			for($i = 0; $i < $nr; $i++){
+				$row = pg_fetch_array($result, $i);
+				$html = $html.'<option>'.$row[0].'</option>';	
+			}
+		$html = $html.'<option value="new">Crear una nueva dirección</option>';
 		echo $html;
 	}
 ?>
