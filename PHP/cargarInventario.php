@@ -66,7 +66,7 @@
 			$nr = pg_num_rows($result);
 			for($i = 0; $i < $nr; $i++){
 				$row = pg_fetch_array($result, $i);
-				$html = $html.'<option>'.$row[0].'</option>';	
+				$html = $html.'<option value="l">'.$row[0].'</option>';	
 			}
 		$html = $html.'<option value="new">Crear una nueva dirección</option>';
 		echo $html;

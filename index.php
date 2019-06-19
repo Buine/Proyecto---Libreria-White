@@ -98,18 +98,22 @@
 				for($i = 0; $i < $nr; $i++){
 					$row = pg_fetch_array($result, $i);
 					?>
-					<option><?= $row[0] ?></option>	
+					<option value="l"><?= $row[0] ?></option>
 				<?php
 				}
 				?>
 				<option value="new">Crear una nueva dirección</option>
 			</select>
-			<button type="button" class="newInventario">Generar un nuevo inventario</button>
+			<button type="button" class="newInventario" onClick="generateInv()">Generar un nuevo inventario</button>
 		</div>
 	</div>
     <!-- Aqui se inserta el preview | det = detalles -->
 	<div id="det">
 	
+	</div>
+	<!-- Aqui se inserta el generar | gen = generar -->
+	<div id="gen">
+		
 	</div>
 </body>
 </html>

@@ -1,7 +1,17 @@
 var det = false;
+var gen = false;
+
+window.onbeforeunload = function(e) {
+	if(gen){
+		var dialogText = 'Al recargar la pagina no se guardara el inventario \n¿Seguro que quieres salir?';
+		e.returnValue = dialogText;
+		return dialogText;
+	}
+};
 
 function deleteInv(id){
-	if(confirm("Estas seguro de eliminar este registro de inventario?")){
+	if(gen){ alert("No se puede eliminar inventario hasta terminar de generar el inventario") }
+	else if(confirm("Estas seguro de eliminar este registro de inventario?")){
 		$.ajax({
 			type: "POST",
 			url: "/proyecto/PHP/cargarInventario.php",
@@ -11,8 +21,8 @@ function deleteInv(id){
 				document.getElementById("p").innerHTML = d[0];
 				document.getElementById("locals").innerHTML = d[1];
 			},
-			error:function(data){
-				alert(data);
+			error:function(){
+				alert("Sucedio un error al intentar eliminar el inventario");
 			}
 		});
 	}
@@ -33,8 +43,31 @@ function details(id){
 			}
 			window.location.href = "#preview";
 		},
-		error:function(data){
-			alert(data);
+		error:function(){
+			alert("Sucedio un error al intentar cargar los detalles");
 		}
 	});
+}
+
+function generateInv(){
+	var select = document.getElementById("locals");
+	var option = "";
+	if(select.value == 'default'){
+		alert("Eligue un local, o elige crear uno");
+		return;
+	} else if (select.value == 'l'){
+		option = select.options[select.selectedIndex].innerText;
+	}
+	$.ajax({
+		type: 'POST',
+		url: "/proyecto/PHP/cargarGenerar.php",
+		data: {local:option},
+		success:function(data){
+			//Aqui acción <-
+			gen = true;
+		},
+		error:function(){
+			alert("Sucedio un error al intentar generar el inventario\nIntentelo más tarde");
+		}
+	})
 }
