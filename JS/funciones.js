@@ -50,6 +50,7 @@ function details(id){
 }
 
 function generateInv(){
+	if(gen){ alert("Actualmente se está generando un inventario"); return; }
 	var select = document.getElementById("locals");
 	var option = "";
 	if(select.value == 'default'){

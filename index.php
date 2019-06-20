@@ -112,8 +112,59 @@
 	
 	</div>
 	<!-- Aqui se inserta el generar | gen = generar -->
-	<div id="gen">
-		
+	<div id="gen" class="gen">
+		<h4>GENERANDO</h4>
+		<h5>INFORMACIÓN GENERAL</h5>
+		<div class="window">
+			<div class="head"></div>
+			<fieldset class="x">
+					<label for="id">ID del Inventario</label>
+					<input type="number" required="required" class="input" id="id">
+					<label for="fecha" class="f">Fecha</label>
+					<input type="date" required="required" class="input" id="fecha">
+			</fieldset>
+			<fieldset class="y">
+					<label for="dir1">Dirección</label>
+					<input type="text" required="required" class="input2" id="dir1" placeholder="Ciudad">
+					<input type="text" required="required" class="input2" id="dir2" placeholder="Barrio">
+					<input type="text" required="required" class="input2" id="dir3" placeholder="Calle">
+			</fieldset>
+			<div class="head"></div>
+			<div class="table">
+				<div class="row header">
+					<div class="cell">
+						Codigo
+					</div>
+					<div class="cell">
+						Titulo
+					</div>
+					<div class="cell">
+						Autor
+					</div>
+					<div class="cell">
+						Genero
+					</div>
+					<div class="cell">
+						Cantidad
+					</div>
+					<div class="cell">
+						Entradas
+					</div>
+					<div class="cell">
+						Salidas
+					</div>
+					<div class="cell">
+						Precio
+					</div>
+					<div class="cell">
+						Costo
+					</div>
+					<div class="cell">
+						Stock
+					</div>
+				</div>
+			</div>
+		</div>
 	</div>
 </body>
 </html>
