@@ -131,7 +131,7 @@ body{
   box-shadow: 0 10px 40px rgba(0,0,0,0.2);
   display: table;
 }
-@media screen and (max-width: 580px) {
+@media screen and (max-width: 605px) {
   .table {
     display: block;
   }
@@ -155,7 +155,7 @@ body{
 .row.blue {
   background: #2980b9;
 }
-@media screen and (max-width: 580px) {
+@media screen and (max-width: 605px) {
   .row {
     padding: 14px 0 7px;
     display: block;
@@ -186,7 +186,7 @@ body{
   padding: 6px 12px;
   display: table-cell;
 }
-@media screen and (max-width: 580px) {
+@media screen and (max-width: 605px) {
   .cell {
     padding: 2px 16px;
     display: block;
@@ -273,7 +273,7 @@ a {
     display: flex;
 }
 
-@media screen and (max-width: 580px) {
+@media screen and (max-width: 605px) {
 	.locals {
 		width: 100%;
 		display: block;
@@ -285,6 +285,7 @@ a {
 		width: 100%;
 		display: block;
 		margin-left: 0;
+		margin-bottom: 5px;
 	}
 	.buttons{
 		display: block;
@@ -335,7 +336,7 @@ a {
 .window input {
 	border-radius: 10px;
 	font-family: "Google";
-	font-size: 15px;
+	font-size: 13px;
 	color: #757575;
 	font-weight: 200;
 	background: #e9e9e9;
@@ -346,7 +347,7 @@ a {
 }
 
 .input{
-	width: calc(90% / 3);
+	width: calc(90% / 4);
 }
 
 .input2 {
@@ -357,7 +358,7 @@ a {
 	margin-left: 15px;
 }
 
-@media screen and (max-width: 580px) {
+@media screen and (max-width: 605px) {
 	.input{
 		width: 90%;
 		margin-bottom: 7px;
@@ -392,4 +393,12 @@ a {
 	color: black;
 	margin: 0;
 	text-align: center;
+}
+
+.b{
+	color: #181818;
+	background: white;
+	border-style: double;
+	border-width: thin;
+	border-color: #181818
 }

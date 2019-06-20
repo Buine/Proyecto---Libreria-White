@@ -119,7 +119,7 @@
 			<div class="head"></div>
 			<fieldset class="x">
 					<label for="id">ID del Inventario</label>
-					<input type="number" required="required" class="input" id="id">
+					<input type="number" required="required" class="input" id="id" placeholder="ID">
 					<label for="fecha" class="f">Fecha</label>
 					<input type="date" required="required" class="input" id="fecha">
 			</fieldset>
@@ -130,7 +130,7 @@
 					<input type="text" required="required" class="input2" id="dir3" placeholder="Calle">
 			</fieldset>
 			<div class="head"></div>
-			<div class="table">
+			<div class="table" id="a">
 				<div class="row header">
 					<div class="cell">
 						Codigo
@@ -164,7 +164,8 @@
 					</div>
 				</div>
 			</div>
-			<button type="button" class="s_button" onClick="">Añadir un nuevo libro</button>
+			<button type="button" class="s_button" onClick="">Generar Inventario</button>
+			<button type="button" class="s_button b" onClick="">Añadir un nuevo libro</button>
 		</div>
 	</div>
 </body>
