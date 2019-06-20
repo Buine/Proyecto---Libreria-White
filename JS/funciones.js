@@ -3,7 +3,7 @@ var gen = false;
 
 window.onbeforeunload = function(e) {
 	if(gen){
-		var dialogText = 'Al recargar la pagina no se guardara el inventario \n¿Seguro que quieres salir?';
+		var dialogText = 'Al recargar la pagina no se guardara el inventario';
 		e.returnValue = dialogText;
 		return dialogText;
 	}
