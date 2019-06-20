@@ -104,7 +104,7 @@
 				?>
 				<option value="new">Crear una nueva dirección</option>
 			</select>
-			<button type="button" class="newInventario" onClick="generateInv()">Generar un nuevo inventario</button>
+			<button type="button" class="s_button" onClick="generateInv()">Generar un nuevo inventario</button>
 		</div>
 	</div>
     <!-- Aqui se inserta el preview | det = detalles -->
@@ -164,6 +164,7 @@
 					</div>
 				</div>
 			</div>
+			<button type="button" class="s_button" onClick="">Añadir un nuevo libro</button>
 		</div>
 	</div>
 </body>

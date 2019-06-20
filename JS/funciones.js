@@ -54,7 +54,7 @@ function generateInv(){
 	var select = document.getElementById("locals");
 	var option = "";
 	if(select.value == 'default'){
-		alert("Eligue un local, o elige crear uno");
+		alert("Eligue una direccion, o elige crear una");
 		return;
 	} else if (select.value == 'l'){
 		option = select.options[select.selectedIndex].innerText;
