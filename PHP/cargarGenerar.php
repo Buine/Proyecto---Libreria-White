@@ -2,10 +2,13 @@
 	if($_POST['local']){
 		$dbconn = pg_connect("host=localhost dbname=libreria user=postgres password=1234")
 		or die('No se ha podido conectar: ' . pg_last_error());
-		$query = "SELECT inv_id FROM inventario ORDER BY inv_id DESC LIMIT 1";
+		$query = "(SELECT (inv_json ->> 'id')::int as id FROM inventario ORDER BY inv_json ->> 'id' DESC LIMIT 1)
+					UNION
+					(SELECT inv_id as id FROM inventario ORDER BY inv_id DESC LIMIT 1)";
 		$result = pg_query($dbconn, $query);
 		$row = pg_fetch_array($result, 0);
-		$html = ((int)$row["inv_id"]+1).'|$|'; // <---- |$| es un separador para realizar split
+		$row2 = pg_fetch_array($result, 1);
+		$html = ((int)$row["id"]+1).'|$|'.((int)$row2["id"]+1).'|$|'; // <---- |$| es un separador para realizar split
 		
 		if($_POST['local'] != "$%&"){ //<--- Se eligio una direccion existente
 			$query = "SELECT *, row_number() over(order by (SELECT 'sin_ordernar')::text)::int-1 as pos_vector
@@ -36,34 +39,34 @@
 				}
 				$html = $html.'
 					<div class="row">
-						<div class="cell" data-title="Codigo">
+						<div class="cell" data-title="Codigo" id="cod'.$i.'">
 							'.($row[0]).'
 						</div>
-						<div class="cell" data-title="Titulo">
+						<div class="cell" data-title="Titulo" id="tit'.$i.'">
 							'.($row[1]).'
 						</div>
-						<div class="cell" data-title="Autor">
+						<div class="cell" data-title="Autor" id="aut'.$i.'">
 							'.($row[2]).'
 						</div>
-						<div class="cell" data-title="Generos">
+						<div class="cell" data-title="Generos" id="gen'.$i.'">
 							'.$generos.'
 						</div>
-						<div class="cell" data-title="Cantidad">
+						<div class="cell" data-title="Cantidad" id="can'.$i.'">
 							'.((int)$row[4]+(int)$row[5]-(int)$row[6]).'
 						</div>
-						<div class="cell" data-title="Entradas">
-							Editar
+						<div class="cell" data-title="Entradas" id="ent'.$i.'">
+							<a onClick="editar(this,'.$i.')">(Editar)</a>
 						</div>
-						<div class="cell" data-title="Salidas">
-							Editar
+						<div class="cell" data-title="Salidas" id="sal'.$i.'">
+							<a onClick="editar(this,'.$i.')">(Editar)</a>
 						</div>
-						<div class="cell" data-title="Precio">
-							'.($row[7]).'
+						<div class="cell" data-title="Precio" id="pre'.$i.'">
+							<a onClick="editar(this,'.$i.')">'.($row[7]).' (Editar)</a>
 						</div>
-						<div class="cell" data-title=Costo>
-							'.($row[8]).'
+						<div class="cell" data-title=Costo id="cos'.$i.'">
+							<a onClick="editar(this,'.$i.')">'.($row[8]).' (Editar)</a>
 						</div>
-						<div class="cell" data-title=Stock>
+						<div class="cell" data-title=Stock id="sto'.$i.'">
 							'.((int)$row[4]+(int)$row[5]-(int)$row[6]).'
 						</div>
 					</div>';

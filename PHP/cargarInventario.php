@@ -20,7 +20,7 @@
 						Fecha
 					  </div>
 					  <div class="cell" data-title="Dirección">
-						Direccion
+						Dirección
 					  </div>
 					  <div class="cell" data-title="Observaciones">
 						Observaciones
@@ -42,7 +42,7 @@
 						'.($info->fecha).'
 					  </div>
 					  <div class="cell">
-						'.($dir->ciudad).', '.($dir->barrio).', '.($dir->calle).'
+						'.strtoupper($dir->ciudad).', '.strtoupper($dir->barrio).', '.strtoupper($dir->calle).'
 					  </div>
 					  <div class="cell">
 						'.($info->observaciones).'

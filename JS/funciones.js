@@ -1,5 +1,25 @@
 var det = false;
 var gen = false;
+var idf;
+
+function editar(cell, row){
+	var info = prompt('Valor a ingresar', cell.innerText);
+	if(info != null){
+		if(info != "" && !isNaN(info)){
+			cell.innerText = info;
+			var can = document.getElementById("can"+row).innerText;
+			var ent = document.getElementById("ent"+row).innerText;
+			var sal = document.getElementById("sal"+row).innerText;
+			var stock = parseInt(can);
+			if (ent != "(Editar)"){ stock += parseInt(ent); }
+			if (sal != "(Editar)"){	stock -= parseInt(sal); }
+			document.getElementById("sto"+row).innerHTML = stock;
+		} else {
+			alert("No se realizo el cambio, verifica el valor a ingresar")
+		}
+	}
+}
+
 window.onload = function(){
 	document.getElementById("gen").style.display = "none";
 }
@@ -76,11 +96,12 @@ function generateInv(){
 		success:function(data){
 			//Aqui acción <-
 			var d = data.split("|$|");
+			idf = d[1];
 			document.getElementById("id").value = d[0];
 			document.getElementById("id").disabled = true;
 			document.getElementById("gen").style.display = "block";
 			window.location.href = "#gen";
-			document.getElementById("a").insertAdjacentHTML('beforeend', d[1]);
+			document.getElementById("a").insertAdjacentHTML('beforeend', d[2]);
 			gen = true;
 		},
 		error:function(){
