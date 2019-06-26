@@ -402,3 +402,60 @@ a {
 	border-width: thin;
 	border-color: #181818
 }
+/*-----------[Add-book]--------------*/
+.addBook fieldset{
+	border-style: none;
+	display: block;
+    margin: 10px auto;
+    text-align: center;
+}
+
+.addBook label{
+	font-size: 16px;
+	font-family: "Google";
+	color: #181818;
+}
+
+.addBook input {
+	border-radius: 10px;
+	font-family: "Google";
+	font-size: 13px;
+	color: #757575;
+	width: 90%;
+	margin-bottom: 7px;
+	font-weight: 200;
+	background: #e9e9e9;
+	border-style: none;
+	padding: 8px;
+	height: 25px;
+	margin-left: 5px;
+}
+
+.addBook h4{
+	font-size: 50px;
+	font-family: "Helvetica Neue";
+	color: white;
+	margin: 0;
+	text-shadow:
+   -1px -1px 0 black,  
+    1px -1px 0 black,
+    -1px 1px 0 black,
+     1px 1px 0 black, 0px 2.5px 0 black;
+	height: 52px;
+	text-align: center;
+}
+
+.addBook h5{
+	font-size: 16px;
+	font-family: "Helvetica Neue";
+	color: black;
+	margin: 0;
+	text-align: center;
+}
+@media screen and (max-width: 605px) {
+	.addBook h4{
+		margin-top: 0px;
+		margin-bottom: 35px;
+		line-height: 42px;
+	}
+}

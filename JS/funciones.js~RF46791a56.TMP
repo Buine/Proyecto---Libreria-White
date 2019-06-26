@@ -24,7 +24,6 @@ function editar(cell, row){
 
 window.onload = function(){
 	document.getElementById("gen").style.display = "none";
-	document.getElementById("addBook").style.display = "none";
 }
 
 window.onbeforeunload = function(e) {
@@ -116,7 +115,6 @@ function generateInv(){
 }
 
 function addBook(){
-	document.getElementById("addBook").style.display = "block";
 	alertify.genericDialog || alertify.dialog('genericDialog',function(){
     return {
         main:function(content){
@@ -143,55 +141,6 @@ function addBook(){
         }
     };
 });
-alertify.genericDialog ($('#addBook')[0]).set('selector', 'input[type="number"]');
-}
-
-function vAddBook(cod,tit,aut,gen,pre,cos){
-	if(cod.value != "" && tit != "" && aut != "" && gen != "" && pre != "" && cos != ""){
-		if(!cods.includes(cod.value)){
-			var row = document.getElementById("a").getElementsByClassName("row").length-1;
-			var addhtml = 	`<div class="row">
-								<div class="cell" data-title="Codigo" id="cod`+row+`">
-									`+cod.value+`
-								</div>
-								<div class="cell" data-title="Titulo" id="tit`+row+`">
-									`+tit.value+`
-								</div>
-								<div class="cell" data-title="Autor" id="aut`+row+`">
-									`+aut.value+`
-								</div>
-								<div class="cell" data-title="Generos" id="gen`+row+`">
-									`+gen.value+`
-								</div>
-								<div class="cell" data-title="Cantidad" id="can`+row+`">
-									 0
-								</div>
-								<div class="cell" data-title="Entradas" id="ent`+row+`">
-									<a onClick="editar(this,`+row+`)">(Editar)</a>
-								</div>
-								<div class="cell" data-title="Salidas" id="sal`+row+`">
-									<a onClick="editar(this,`+row+`)">(Editar)</a>
-								</div>
-								<div class="cell" data-title="Precio" id="pre`+row+`">
-									<a onClick="editar(this,`+row+`)">`+pre.value+` (Editar)</a>
-								</div>
-								<div class="cell" data-title=Costo id="cos`+row+`">
-									<a onClick="editar(this,`+row+`)">`+cos.value+` (Editar)</a>
-								</div>
-								<div class="cell" data-title=Stock id="sto`+row+`">
-									0
-								</div>
-							</div>`;
-			document.getElementById("a").insertAdjacentHTML('beforeend', addhtml);
-			alertify.closeAll();
-			cod.value = "";
-			tit.value = "";
-			aut.value = "";
-			gen.value = "";
-			pre.value = "";
-			cos.value = "";
-		} else { alert("El codigo ya está en uso.\nCodigo: "+cod.value+", Titulo: "+titles[cods.indexOf(cod.value)]); }
-	} else { 
-		alert("Rellena todos los campos para continuar");	
-	}
+//force focusing password box
+alertify.genericDialog ($('#loginForm')[0]).set('selector', 'input[type="password"]');
 }

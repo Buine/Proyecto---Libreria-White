@@ -72,6 +72,26 @@
 					</div>';
 			}
 		}
+		//Cargando codigos de libros creados hasta el momento, con sus titulos
+		$query = "SELECT DISTINCT(libro.codigo) as cod, libro.titulo as title
+					FROM inventario
+					CROSS JOIN json_to_recordset(inv_json -> 'libros')
+						AS libro(codigo TEXT, titulo TEXT)";
+		$result = pg_query($dbconn, $query);
+		$nr = pg_num_rows($result);
+		$cod = ""; $title = "";
+		for($i = 0; $i < $nr; $i++){
+			if ($i == 0){ 
+				$row = pg_fetch_array($result, $i);
+				$cod = $row[0];
+				$title = $row[1];
+			} else {
+				$row = pg_fetch_array($result, $i);
+				$cod = $cod.'*-*'.$row[0];
+				$title = $title.'*-*'.$row[1];
+			}
+		}
+		$html = $html.'|$|'.$cod.'|$|'.$title;
 		echo $html;
 	}
 ?>

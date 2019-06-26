@@ -11,6 +11,11 @@
 	<link href="https://fonts.googleapis.com/css?family=Roboto+Condensed|Roboto:400,400i&display=swap" rel="stylesheet">
 	<link href="//db.onlinewebfonts.com/c/021120d820562daab169a2337ab13040?family=Helvetica+Neue" rel="stylesheet">
 	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+	<script src="//cdn.jsdelivr.net/npm/alertifyjs@1.11.4/build/alertify.min.js"></script>
+	<!-- CSS -->
+	<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.11.4/build/css/alertify.min.css"/>
+	<!-- Default theme -->
+	<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.11.4/build/css/themes/default.min.css"/>
 	
 </head>
 	<header class="header">
@@ -165,8 +170,22 @@
 				</div>
 			</div>
 			<button type="button" class="s_button" onClick="">Generar Inventario</button>
-			<button type="button" class="s_button b" onClick="">Añadir un nuevo libro</button>
+			<button type="button" class="s_button b" onClick="addBook()">Añadir un nuevo libro</button>
 		</div>
 	</div>
 </body>
+<form id="addBook" class="addBook">
+	<h4>AGREGAR LIBRO</h4>
+	<h5>VERIFICA TODOS LOS CAMPOS</h5>
+    <fieldset>
+        <input type="number" placeholder="Codigo" id="cod"/> 
+        <input type="text" placeholder="Titulo" id="tit"/>
+		<input type="text" placeholder="Autor" id="aut"/>
+		<input type="text" placeholder="Generos" id="gen"/>
+		<input type="number" placeholder="Precio" id="pre"/>
+		<input type="number" placeholder="Costo" id="cos"/> 
+
+		<button type="button" class="s_button" onClick="vAddBook(cod,tit,aut,gen,pre,cos)">Añadir libro</button>
+    </fieldset>
+</form>
 </html>
