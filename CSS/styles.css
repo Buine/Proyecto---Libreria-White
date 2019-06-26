@@ -176,15 +176,16 @@ body{
     min-width: 98px;
     font-size: 10px;
     line-height: 10px;
-    font-weight: bold;
+    font-weight: 400;
     text-transform: uppercase;
     color: #969696;
     display: block;
   }
 }
 .cell {
-  padding: 6px 12px;
-  display: table-cell;
+	padding: 6px 12px;
+	display: table-cell;
+	font-size: 15px;
 }
 @media screen and (max-width: 605px) {
   .cell {

@@ -153,23 +153,24 @@
 						Cantidad
 					</div>
 					<div class="cell">
-						Entradas
+						Entradas*
 					</div>
 					<div class="cell">
-						Salidas
+						Salidas*
 					</div>
 					<div class="cell">
-						Precio
+						Precio*
 					</div>
 					<div class="cell">
-						Costo
+						Costo*
 					</div>
 					<div class="cell">
 						Stock
 					</div>
 				</div>
 			</div>
-			<button type="button" class="s_button" onClick="">Generar Inventario</button>
+			<h6>Los campos con * pueden ser ser editados</h6>
+			<button type="button" class="s_button" onClick="sendInventario(a,fecha,dir1,dir2,dir3)">Generar Inventario</button>
 			<button type="button" class="s_button b" onClick="addBook()">Añadir un nuevo libro</button>
 		</div>
 	</div>

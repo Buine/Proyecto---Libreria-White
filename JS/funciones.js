@@ -1,5 +1,6 @@
 var det = false;
 var gen = false;
+var inf;
 var idf;
 var cods;
 var titles;
@@ -193,5 +194,51 @@ function vAddBook(cod,tit,aut,gen,pre,cos){
 		} else { alert("El codigo ya está en uso.\nCodigo: "+cod.value+", Titulo: "+titles[cods.indexOf(cod.value)]); }
 	} else { 
 		alert("Rellena todos los campos para continuar");	
+	}
+}
+
+function sendInventario(table, fecha, dir1, dir2, dir3){
+	var idinv = document.getElementById("id");
+	if(idinv.value != "" && fecha.value != "" && dir1.value != "" && dir2.value != "" && dir3.value != ""){
+		var numrow = table.getElementsByClassName("row").length-1;
+		var json = '{"id" : "'+idinv.value+'", "fecha" : "'+fecha.value+'", "direccion" : { "ciudad" : "'+dir1.value+'", "barrio" : "'+dir2.value+'", "calle" : "'+dir3.value+'"} ,"libros" : [';
+		for(var i = 0; i < numrow; i++){
+			var cells = table.getElementsByClassName("row")[i+1].getElementsByClassName("cell")
+			if(!isNaN(cells[5].innerText) && !isNaN(cells[6].innerText) && !isNaN((cells[7].innerText.split(" "))[0]) && !isNaN((cells[8].innerText.split(" "))[0])){
+				var genres = cells[3].innerText.split(", ");
+				json = json+'{ "codigo" : "'+cells[0].innerText+'", "titulo" : "'+cells[1].innerText+'", "autor" : "'+cells[2].innerText+'", "genero" : ["'+genres[0]+'"';
+				for(var j = 1; j < genres.length; j++){
+					json = json+', "'+genres[j]+'"';
+				}
+				json = json+'], "cantidad" : "'+cells[4].innerText+'", "entradas" : "'+cells[5].innerText+'", "salidas" : "'+cells[6].innerText+'", "precio" : "'+(cells[7].innerText.split(" "))[0]+'", "costo" : "'+(cells[8].innerText.split(" "))[0]+'" }';
+				if(i+1 != numrow){ json = json+", "; }
+			} else {
+				alert("Debes editar obligatoriamente los campos 'entradas' y 'salidas'");
+				return;
+			}
+			
+		}
+		var obs = prompt("Ingrese una observación");
+		if(obs != ""){ json = json+'], "observaciones" : "'+obs+'" }'; }
+		else { json = json+'], "observaciones" : "" }'; }
+		console.log(json);
+		$.ajax({
+			type: "POST",
+			url: "/proyecto/PHP/generarInventario.php",
+			data:{generar:json},
+			success:function(){
+				//Accion aqui!
+				alert("Se genero correctamente la orden de compra");
+				gen = false;
+				location.reload();
+			},
+			error:function(data){
+				alert("Sucedio al intentar generar el inventario, intentelo despues");
+				alert(data);
+			}
+		});
+	} else {
+		alert("Debes rellenar todos los campos");
+		return;
 	}
 }
