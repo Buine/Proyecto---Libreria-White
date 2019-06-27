@@ -6,9 +6,14 @@
 					UNION
 					(SELECT inv_id as id FROM inventario ORDER BY inv_id DESC LIMIT 1)";
 		$result = pg_query($dbconn, $query);
-		$row = pg_fetch_array($result, 0);
-		$row2 = pg_fetch_array($result, 1);
-		$html = ((int)$row["id"]+1).'|$|'.((int)$row2["id"]+1).'|$|'; // <---- |$| es un separador para realizar split
+		$nr = pg_num_rows($result);
+		if($nr > 0){
+			$row = pg_fetch_array($result, 0);
+			$row2 = pg_fetch_array($result, 1);
+			$html = ((int)$row["id"]+1).'|$|'.((int)$row2["id"]+1).'|$|'; // <---- |$| es un separador para realizar split
+		} else {
+			$html = "1|$|1|$|";
+		}
 		
 		if($_POST['local'] != "$%&"){ //<--- Se eligio una direccion existente
 			$query = "SELECT *, row_number() over(order by (SELECT 'sin_ordernar')::text)::int-1 as pos_vector
@@ -79,19 +84,21 @@
 						AS libro(codigo TEXT, titulo TEXT)";
 		$result = pg_query($dbconn, $query);
 		$nr = pg_num_rows($result);
-		$cod = ""; $title = "";
-		for($i = 0; $i < $nr; $i++){
-			if ($i == 0){ 
-				$row = pg_fetch_array($result, $i);
-				$cod = $row[0];
-				$title = $row[1];
-			} else {
-				$row = pg_fetch_array($result, $i);
-				$cod = $cod.'*-*'.$row[0];
-				$title = $title.'*-*'.$row[1];
+		if($nr > 0){
+			$cod = ""; $title = "";
+			for($i = 0; $i < $nr; $i++){
+				if ($i == 0){ 
+					$row = pg_fetch_array($result, $i);
+					$cod = $row[0];
+					$title = $row[1];
+				} else {
+					$row = pg_fetch_array($result, $i);
+					$cod = $cod.'*-*'.$row[0];
+					$title = $title.'*-*'.$row[1];
+				}
 			}
+			$html = $html.'|$|'.$cod.'|$|'.$title;
 		}
-		$html = $html.'|$|'.$cod.'|$|'.$title;
 		echo $html;
 	}
 ?>

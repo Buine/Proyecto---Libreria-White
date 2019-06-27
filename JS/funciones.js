@@ -2,8 +2,8 @@ var det = false;
 var gen = false;
 var inf;
 var idf;
-var cods;
-var titles;
+var cods = [];
+var titles = [];
 
 function editar(cell, row){
 	var info = prompt('Valor a ingresar', cell.innerText);
@@ -101,13 +101,16 @@ function generateInv(){
 			//Aqui acción <-
 			var d = data.split("|$|");
 			idf = d[1];
+			console.log(d[0]);
 			document.getElementById("id").value = d[0];
 			document.getElementById("id").disabled = true;
 			document.getElementById("gen").style.display = "block";
 			window.location.href = "#gen";
 			document.getElementById("a").insertAdjacentHTML('beforeend', d[2]);
-			cods = d[3].split("*-*");
-			titles = d[4].split("*-*");
+			if(d[3] != undefined){
+				cods = d[3].split("*-*");
+				titles = d[4].split("*-*");
+			}
 			gen = true;
 		},
 		error:function(){
